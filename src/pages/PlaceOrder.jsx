@@ -56,7 +56,7 @@ const PlaceOrder = () => {
       switch (method) {
         // * API calls for COD
         case 'cod':
-          const response = await axios.post(`${backendUrl}/api/order/place`, orderData, {
+          const response = await axios.post(`https://ecommerce-backend-omega-peach.vercel.app/api/order/place`, orderData, {
             headers: { token }
           })
           if (response.data.success) {
@@ -68,7 +68,7 @@ const PlaceOrder = () => {
           break;
 
         case 'stripe':
-          const responseStripe = await axios.post(`${backendUrl}/api/order/stripe`, orderData, { headers: { token } })
+          const responseStripe = await axios.post(`https://ecommerce-backend-omega-peach.vercel.app/api/order/stripe`, orderData, { headers: { token } })
           if (responseStripe.data.success) {
             const { session_url } = responseStripe.data
             window.location.replace(session_url)

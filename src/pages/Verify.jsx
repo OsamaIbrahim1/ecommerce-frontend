@@ -18,7 +18,7 @@ const Verify = () => {
                 return null
             }
 
-            const response = await axios.post(`${backendUrl}/api/order/verifyStripe`, { orderId, success }, { headers: { token } })
+            const response = await axios.post(`https://ecommerce-backend-omega-peach.vercel.app/api/order/verifyStripe`, { orderId, success }, { headers: { token } })
             if (response.data.success) {
                 setCartItems({})
                 navigate('/orders')
